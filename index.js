@@ -18,6 +18,7 @@ let weeks = 0
 let totalGrowth = starterPlants * (2 ** weeks)
 
 // Predict plant growth after a specific number of weeks
+
 if (weeks = 1){
     let totalGrowth = starterPlants * (2 ** weeks)
     let capacityPercentage = (totalGrowth / maxCapacity) * 100
@@ -54,11 +55,19 @@ if (weeks = 3){
                 }
             }
 
-if (weeks = 10){
-    let starterPlants = 100
-    let totalGrowth = starterPlants * (2 ** weeks)
-    let spaceNeeded = totalGrowth * plantSpace
-    console.log(`The amount of space needed to start with 100 plants and not prune for ten weeks is: ${spaceNeeded} meters`)
-    let newRadius = Math.sqrt(spaceNeeded / PI)
-    console.log(`The reccommended radius for an expanded garden would be ${newRadius}`)
+starterPlants = 100
+try{
+    if((starterPlants * plantSpace) < area){
+        if (weeks = 10){
+        let totalGrowth = starterPlants * (2 ** weeks)
+        let spaceNeeded = totalGrowth * plantSpace
+        console.log(`The amount of space needed to start with 100 plants and not prune for ten weeks is: ${spaceNeeded} meters`)
+        let newRadius = Math.sqrt(spaceNeeded / PI)
+        console.log(`The reccommended radius for an expanded garden would be ${newRadius}`)
+}
+    } else{
+        throw "Error- not enough space"
+    }
+} catch (err){
+    console.log(err)
 }
